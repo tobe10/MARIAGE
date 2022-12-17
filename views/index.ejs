@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <title>Mon mariage</title>
+</head>
+
+<body class="container">
+    <div class="card">
+        <h1 class="mt-2 text-center text-primary p-2 card-header">Ma page d'accueil</h1>
+        <div class="row-col-md-10 row-col-xl-8 text-center card-body">
+            <% if(locals.myImage){ %>
+                <div class="card-image-bottom">
+                    <img src='<%=myImage.path %>' alt="mon image" />
+                </div>
+                <% } %>
+                    <div class="text-warning text-bold">Futurs Mariés! Bienvenue sur la plateforme africaine des
+                        services de
+                        mariage</div>
+                    <div class="text-info"> Trouvez ici les prestataires de mariage
+                        expérimentés pour vous accompagner dans l'organisation de
+                        votre mariage
+                    </div>
+        </div>
+    </div>
+    <form action="/upload" class="form" method="POST" enctype="multipart/form-data">
+        <label for="pays" class="form-label text-primary">Selectionnez votre pays</label>
+        <div> <select name="pays" id="pays" class="form-select">
+                <option value="côte d'ivoire" name="pays">côte d'ivoire</option>
+                <option value=" Togo" name="pays">Togo</option>
+            </select>
+        </div>
+
+        <div>
+
+            <label for="nom" class="form-label text-primary">Nom & Prenoms</label>
+            <input type="text" id="nom" name="nom" class="form-control mt-2">
+            <label for="pnom" class="form-label text-primary">Nom & Prenoms de votre partenaire</label>
+            <input type="text" id="pnom" name="nom_partenaire" class="form-control">
+            <label for="titre" class="form-label text-primary">Titre de votre message</label>
+            <input type="text" id="titre" class="form-control mt-2">
+        </div>
+        <div class="form-floating mt-2">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+            <label for="floatingTextarea">inserez votre message</label>
+        </div>
+        <div class="mt-2">
+            <input type="file" id='file' class="form-control" name='file' multiple>
+            <label for="file" class="form-label">envoyer des photos</label>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3"> Annoncer votre mariage</button>
+    </form>
+
+
+
+</body>
+
+</html>
